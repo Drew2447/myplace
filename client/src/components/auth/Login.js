@@ -3,23 +3,23 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
   const {login} = useContext(AuthContext)
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test@test.com");
+  const [password, setPassword] = useState("123456");
 
   const handleSubmit = (e)=>{
       e.preventDefault()
-      login({username, password})
+      login({email, password})
   }
   return (
     <>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label>user name</label>
+        <label>email</label>
         <input
           required
           autoFocus
-          value={username}
-          onChange={(e) => setUserName(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <label>password</label>
         <input

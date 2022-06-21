@@ -6,7 +6,7 @@ const Home = () => {
   return (
       <div>
       <h1>Andrew's Myspace</h1>
-      {user ? <p>Hello {user.username}</p> : <p>You are not logged in</p>}
+      {user ? <p>Hello {user.email}</p> : <p>You are not logged in</p>}
       </div>
   )
 }

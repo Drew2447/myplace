@@ -6,11 +6,13 @@ import Register from './components/auth/Register';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UserAccount from './components/shared/UserAcc';
+import FetchUser from './components/auth/FetchUser';
 
 const App = () => (
   <>
     <Navbar />
     <>
+    <FetchUser>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -20,6 +22,7 @@ const App = () => (
         </Route>
         <Route path="/*" element={<NoMatch />} />
       </Routes>
+    </FetchUser>
     </>
   </>
 )

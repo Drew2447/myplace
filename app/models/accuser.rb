@@ -1,0 +1,2 @@
+class Accuser < ApplicationRecord
+end

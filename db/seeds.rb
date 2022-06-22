@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+User.destroy_all
+# Users.destroy_all
+
+
+10.times do
+  name = Faker::Name.name
+  gender = Faker::Gender.binary_type
+  avatar = Faker::Avatar.image
+  User.create(name: name, gender: gender, image: avatar)
+end
+puts "#{User.all.size} User Seeded"

@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider"
 
 
 const FetchUser = (props)=>{
-    const {user}= useContext(AuthContext)
+    const {user,setUser}= useContext(AuthContext)
     const [loaded, setLoaded] = useState(false)
     useEffect(()=>{
       checkUser()

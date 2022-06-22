@@ -10,6 +10,7 @@ const AuthProvider = ({children})=>{
     const login = async (user) => {
        try{
         let res = await axios.post('/api/auth/sign_in', user)
+
         setUser(res.data.data)
         navigate('/')
       }catch(err){
@@ -19,22 +20,16 @@ const AuthProvider = ({children})=>{
     }
   
     const logout = async ()=>{
-          //Not working which user to logout?
-          // we are going to need to pass the token to the signout
-          // call
           try{
             await axios.delete('/api/auth/sign_out')
             setUser(null)
             navigate('/login')
           }catch(err){
-            //   alert('sign out did not work')
-            // TODO fix
               setUser(null)
               console.log(err)
           }
     }
     const register = async (user)=>{
-         // TODO axios call interact with DB
          try{
            let res = await axios.post('/api/auth', user)
            console.log(res)
@@ -48,7 +43,7 @@ const AuthProvider = ({children})=>{
    
    }
     return (
-        <AuthContext.Provider value={{user, login, logout, register}}>
+        <AuthContext.Provider value={{user, login, logout, register, setUser}}>
             {children}
         </AuthContext.Provider>
     )
